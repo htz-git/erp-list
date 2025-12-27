@@ -1,0 +1,131 @@
+===========================================================
+    ERP跨境电商管理系统 - 快速使用说明
+===========================================================
+
+【一键启动方式】（推荐）
+
+Windows系统：
+  1. 双击运行 "启动系统.bat" 文件
+  2. 等待所有服务启动完成（约30-60秒）
+  3. 浏览器会自动打开系统入口页面 http://localhost:9000
+
+Linux/Mac系统：
+  1. 在终端执行：chmod +x 启动系统.sh
+  2. 执行：./启动系统.sh
+  3. 等待服务启动后，浏览器会自动打开系统入口页面
+
+===========================================================
+【启动前准备】
+
+1. 启动Nacos服务（必须）
+   
+   方式一：使用项目提供的脚本（推荐）
+   - Windows: 双击运行 "启动Nacos.bat"
+   - Linux/Mac: 执行 "./启动Nacos.sh"
+   
+   方式二：如果还没有Nacos，先下载
+   - Windows: 双击运行 "下载Nacos.bat"
+   - Linux/Mac: 执行 "./下载Nacos.sh"
+   下载解压后，再运行启动脚本
+   
+   方式三：手动启动
+   - 下载Nacos：https://nacos.io/zh-cn/docs/quick-start.html
+   - 解压到项目目录或指定位置
+   - 启动命令：
+     Windows: cd nacos\bin && startup.cmd -m standalone
+     Linux/Mac: cd nacos/bin && sh startup.sh -m standalone
+   
+   - 访问：http://localhost:8848/nacos
+   - 默认用户名/密码：nacos/nacos
+   
+   详细说明请查看 "Nacos部署说明.md"
+
+2. 启动MySQL数据库
+   - 确保MySQL服务已启动
+   - 创建以下数据库：
+     CREATE DATABASE erp_user;
+     CREATE DATABASE erp_order;
+     CREATE DATABASE erp_pay;
+     CREATE DATABASE erp_promotion;
+     CREATE DATABASE erp_purchase;
+     CREATE DATABASE erp_refund;
+     CREATE DATABASE erp_replenishment;
+
+3. 修改数据库配置
+   - 打开各服务的 application.yaml 文件
+   - 修改数据库连接信息（地址、用户名、密码）
+
+===========================================================
+【系统访问地址】
+
+主入口页面：http://localhost:9000
+  - 系统可视化入口
+  - 服务状态监控
+  - 快速访问链接
+
+网关入口：http://localhost:8080
+  - API统一入口
+  - 所有请求通过此地址访问
+
+各服务API文档：
+  - 用户服务：http://localhost:8081/doc.html
+  - 订单服务：http://localhost:8082/doc.html
+  - 支付服务：http://localhost:8083/doc.html
+  - 促销服务：http://localhost:8084/doc.html
+  - 采购服务：http://localhost:8085/doc.html
+  - 退款服务：http://localhost:8086/doc.html
+  - 补货服务：http://localhost:8087/doc.html
+
+Nacos控制台：http://localhost:8848/nacos
+
+===========================================================
+【服务端口分配】
+
+网关服务：8080
+用户服务：8081
+订单服务：8082
+支付服务：8083
+促销服务：8084
+采购服务：8085
+退款服务：8086
+补货服务：8087
+系统入口：9000
+
+===========================================================
+【常见问题】
+
+1. 服务无法启动
+   - 检查端口是否被占用
+   - 检查Nacos是否已启动
+   - 检查数据库连接配置是否正确
+
+2. 服务无法注册到Nacos
+   - 确认Nacos服务正常运行
+   - 检查 bootstrap.yaml 中的Nacos地址配置
+
+3. 数据库连接失败
+   - 确认MySQL服务已启动
+   - 检查数据库是否已创建
+   - 检查用户名密码是否正确
+
+4. 浏览器无法访问
+   - 等待30-60秒让服务完全启动
+   - 检查防火墙设置
+   - 确认服务已成功启动
+
+===========================================================
+【停止服务】
+
+Windows系统：
+  关闭所有打开的命令行窗口即可停止服务
+
+Linux/Mac系统：
+  使用 kill 命令停止对应的进程ID
+
+===========================================================
+【技术支持】
+
+如有问题，请查看 README.md 文件获取详细说明
+
+===========================================================
+

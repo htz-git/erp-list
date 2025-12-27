@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 用户服务路由
+        - id: erp-user-service
+          uri: lb://erp-user-service
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - StripPrefix=1
+        # 订单服务路由
+        - id: erp-order-service
+          uri: lb://erp-order-service
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - StripPrefix=1
+        # 支付服务路由
+        - id: erp-pay-service
+          uri: lb://erp-pay-service
+          predicates:
+            - Path=/api/pays/**
+          filters:
+            - StripPrefix=1
+        # 促销服务路由
+        - id: erp-promotion-service
+          uri: lb://erp-promotion-service
+          predicates:
+            - Path=/api/promotions/**
+          filters:
+            - StripPrefix=1
+        # 采购服务路由
+        - id: erp-purchase-service
+          uri: lb://erp-purchase-service
+          predicates:
+            - Path=/api/purchases/**
+          filters:
+            - StripPrefix=1
+        # 退款服务路由
+        - id: erp-refund-service
+          uri: lb://erp-refund-service
+          predicates:
+            - Path=/api/refunds/**
+          filters:
+            - StripPrefix=1
+        # 补货服务路由
+        - id: erp-replenishment-service
+          uri: lb://erp-replenishment-service
+          predicates:
+            - Path=/api/replenishments/**
+          filters:
+            - StripPrefix=1
+
+

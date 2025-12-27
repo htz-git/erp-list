@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_common" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_order" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_pay" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_promotion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_purchase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_refund" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_replenishment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/erp_user" vcs="Git" />
+  </component>
+</project>
