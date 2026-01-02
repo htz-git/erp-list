@@ -1,0 +1,230 @@
+14:15:48:054  WARN 79548 --- [erp-order-service] [main] c.a.nacos.client.logging.NacosLogging    : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+14:15:48:067  INFO 79548 --- [erp-order-service] [main] c.a.n.c.c.impl.LocalConfigInfoProcessor  : LOCAL_SNAPSHOT_PATH:C:\Users\惠普\nacos\config
+14:15:48:070  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0
+14:15:48:084  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$540/0x0000000800f83490
+14:15:48:085  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$541/0x0000000800f838b0
+14:15:48:085  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+14:15:48:085  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+14:15:48:091  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Try to connect to server on start up, server: {serverIp = '192.168.31.1', server main port = 8848}
+14:15:48:125  INFO 79548 --- [erp-order-service] [main] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server:192.168.31.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+14:15:50:696 ERROR 79548 --- [erp-order-service] [main] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 192.168.31.1 ,port 9848 is available , error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:566) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:445) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:218) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:329) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.start(RpcClient.java:363) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.ensureRpcClient(ClientWorker.java:891) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.getOneRunningClient(ClientWorker.java:1038) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.queryConfig(ClientWorker.java:946) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:403) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:184) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:96) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:50) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:46) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.doInitialize(PropertySourceBootstrapConfiguration.java:120) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:110) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:626) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:397) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331) ~[spring-boot-3.2.0.jar:3.2.0]
+	at com.example.erp_order.ErpOrderApplication.main(ErpOrderApplication.java:14) ~[classes/:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:539) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:544) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:471) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:435) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:468) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:563) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:744) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-2.2.1.jar:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /192.168.31.1:9848
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-2.2.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+14:15:50:702  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Try to connect to server on start up, server: {serverIp = '192.168.31.1', server main port = 8848}
+14:15:50:702  INFO 79548 --- [erp-order-service] [main] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server:192.168.31.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+14:15:52:761 ERROR 79548 --- [erp-order-service] [main] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 192.168.31.1 ,port 9848 is available , error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:566) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:445) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:218) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:329) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.start(RpcClient.java:363) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.ensureRpcClient(ClientWorker.java:891) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.getOneRunningClient(ClientWorker.java:1038) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.queryConfig(ClientWorker.java:946) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:403) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:184) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:96) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:50) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:46) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.doInitialize(PropertySourceBootstrapConfiguration.java:120) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:110) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:626) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:397) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331) ~[spring-boot-3.2.0.jar:3.2.0]
+	at com.example.erp_order.ErpOrderApplication.main(ErpOrderApplication.java:14) ~[classes/:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:539) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:544) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:471) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:435) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:468) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:563) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:744) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-2.2.1.jar:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /192.168.31.1:9848
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-2.2.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+14:15:52:765  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Try to connect to server on start up, server: {serverIp = '192.168.31.1', server main port = 8848}
+14:15:52:765  INFO 79548 --- [erp-order-service] [main] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server:192.168.31.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+14:15:54:792 ERROR 79548 --- [erp-order-service] [main] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 192.168.31.1 ,port 9848 is available , error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:566) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:445) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:218) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:329) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.start(RpcClient.java:363) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.ensureRpcClient(ClientWorker.java:891) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.getOneRunningClient(ClientWorker.java:1038) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient.queryConfig(ClientWorker.java:946) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:403) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:184) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:96) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101) ~[spring-cloud-starter-alibaba-nacos-config-2022.0.0.0.jar:2022.0.0.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:50) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:46) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.doInitialize(PropertySourceBootstrapConfiguration.java:120) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:110) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:626) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:397) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331) ~[spring-boot-3.2.0.jar:3.2.0]
+	at com.example.erp_order.ErpOrderApplication.main(ErpOrderApplication.java:14) ~[classes/:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:539) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:544) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:471) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:435) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:468) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:563) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:744) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-2.2.1.jar:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /192.168.31.1:9848
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-2.2.1.jar:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-2.2.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+14:15:54:795  INFO 79548 --- [erp-order-service] [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Try to reconnect to a new server, server is  not appointed, will choose a random server.
+14:15:54:796  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+14:15:54:796  INFO 79548 --- [erp-order-service] [com.alibaba.nacos.client.remote.worker] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server:192.168.31.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+14:15:54:796  INFO 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : [52b3d5ad-9d66-4970-a232-2c41e4cc03b1_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$558/0x0000000801096d10
+14:15:54:834  INFO 79548 --- [erp-order-service] [main] c.a.nacos.client.config.impl.Limiter     : limitTime:5.0
+14:15:54:943 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=2f1bbffcc539656b745fc75ee70d4814, Client-RequestTS=1767334554797, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 0, errorMessage = Client not connected, current status:STARTING
+14:15:55:051 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=2f1bbffcc539656b745fc75ee70d4814, Client-RequestTS=1767334554797, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 1, errorMessage = Client not connected, current status:STARTING
+14:15:55:160 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=2f1bbffcc539656b745fc75ee70d4814, Client-RequestTS=1767334554797, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 2, errorMessage = Client not connected, current status:STARTING
+14:15:55:160  WARN 79548 --- [erp-order-service] [main] c.a.n.client.config.NacosConfigService   : [fixed-192.168.31.1_8848] [get-config] get from server error, dataId=shared-jdbc.yaml, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+14:15:55:161  WARN 79548 --- [erp-order-service] [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[shared-jdbc.yaml] & group[DEFAULT_GROUP]
+14:15:55:269 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=1e08e8398da44943c4430756448bbec6, Client-RequestTS=1767334555162, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 0, errorMessage = Client not connected, current status:STARTING
+14:15:55:376 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=1e08e8398da44943c4430756448bbec6, Client-RequestTS=1767334555162, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 1, errorMessage = Client not connected, current status:STARTING
+14:15:55:487 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=1e08e8398da44943c4430756448bbec6, Client-RequestTS=1767334555162, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 2, errorMessage = Client not connected, current status:STARTING
+14:15:55:488  WARN 79548 --- [erp-order-service] [main] c.a.n.client.config.NacosConfigService   : [fixed-192.168.31.1_8848] [get-config] get from server error, dataId=shared-log.yaml, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+14:15:55:488  WARN 79548 --- [erp-order-service] [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[shared-log.yaml] & group[DEFAULT_GROUP]
+14:15:55:596 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=bf257a876b720a75d33477f6419e7b9a, Client-RequestTS=1767334555489, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 0, errorMessage = Client not connected, current status:STARTING
+14:15:55:706 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=bf257a876b720a75d33477f6419e7b9a, Client-RequestTS=1767334555489, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 1, errorMessage = Client not connected, current status:STARTING
+14:15:55:813 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=bf257a876b720a75d33477f6419e7b9a, Client-RequestTS=1767334555489, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 2, errorMessage = Client not connected, current status:STARTING
+14:15:55:813  WARN 79548 --- [erp-order-service] [main] c.a.n.client.config.NacosConfigService   : [fixed-192.168.31.1_8848] [get-config] get from server error, dataId=erp_order, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+14:15:55:813  WARN 79548 --- [erp-order-service] [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[erp_order] & group[DEFAULT_GROUP]
+14:15:55:923 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=907f3d26b446652d95b31be0e86404ca, Client-RequestTS=1767334555813, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 0, errorMessage = Client not connected, current status:STARTING
+14:15:56:034 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=907f3d26b446652d95b31be0e86404ca, Client-RequestTS=1767334555813, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 1, errorMessage = Client not connected, current status:STARTING
+14:15:56:141 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=907f3d26b446652d95b31be0e86404ca, Client-RequestTS=1767334555813, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 2, errorMessage = Client not connected, current status:STARTING
+14:15:56:142  WARN 79548 --- [erp-order-service] [main] c.a.n.client.config.NacosConfigService   : [fixed-192.168.31.1_8848] [get-config] get from server error, dataId=erp_order.yaml, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+14:15:56:143  WARN 79548 --- [erp-order-service] [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[erp_order.yaml] & group[DEFAULT_GROUP]
+14:15:56:249 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=a9569526a37cfdb58400b115c8283f61, Client-RequestTS=1767334556144, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 0, errorMessage = Client not connected, current status:STARTING
+14:15:56:358 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=a9569526a37cfdb58400b115c8283f61, Client-RequestTS=1767334556144, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 1, errorMessage = Client not connected, current status:STARTING
+14:15:56:469 ERROR 79548 --- [erp-order-service] [main] com.alibaba.nacos.common.remote.client   : Send request fail, request = ConfigQueryRequest{headers={charset=UTF-8, Client-AppName=unknown, Client-RequestToken=a9569526a37cfdb58400b115c8283f61, Client-RequestTS=1767334556144, exConfigInfo=true, notify=false}, requestId='null'}, retryTimes = 2, errorMessage = Client not connected, current status:STARTING
+14:15:56:470  WARN 79548 --- [erp-order-service] [main] c.a.n.client.config.NacosConfigService   : [fixed-192.168.31.1_8848] [get-config] get from server error, dataId=erp_order-dev.yaml, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+14:15:56:470  WARN 79548 --- [erp-order-service] [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[erp_order-dev.yaml] & group[DEFAULT_GROUP]
+14:15:56:472  INFO 79548 --- [erp-order-service] [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-erp_order-dev.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-erp_order.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-erp_order,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-shared-log.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-shared-jdbc.yaml,DEFAULT_GROUP'}]
